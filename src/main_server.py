@@ -11,13 +11,21 @@ def laika_respond():
 
 @app.route("/detect", methods=["POST"])
 def get_pictures():
-    photo_data = request.files['media']
-    file_path = f"data/{request.headers.get('User-Agent').replace('/', '')}-{time()}.jpeg"
-    photo_data.save(file_path)
-    dog_count = count_doggo(file_path, "data/catface.xml")
-    print(f"Detected dogs: {dog_count}")
-    remove(file_path)
-    return f"Dogs in photo: {dog_count}."
+    photo_data = request.data
+    file_path = f"data/{time()}.jpeg"
+    with open(file_path, "wb") as file:
+        file.write(photo_data)
+ #   photo_data.save(file_path)
+    #dog_count = count_doggo(file_path, "data/catface.xml")
+    #print(f"Detected dogs: {dog_count}")
+    #remove(file_path)
+    #return f"Dogs in photo: {dog_count}."
+    return "Hello."
+
+@app.route("/handshake", methods=["POST"])
+def get_handshake():
+    print("Handhsake")
+    return f"sent handshake request at {time()}"
 
 
 if __name__ == '__main__':

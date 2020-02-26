@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# For training
+src/model/Images/
+src/model/negative_images/
+src/model/negatives/
+src/model/positive_images/
+src/model/positives/
+src/model/annotations
+src/model/Annotation
+src/data/*.jpeg
+src/model/cascade
+src/model
++src/model/*.py

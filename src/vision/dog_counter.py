@@ -6,3 +6,7 @@ def count_doggo(img_path, xml_path):
     grayscale = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     dogs = dog_cascade.detectMultiScale(grayscale)
     return len(dogs)
+
+
+if __name__ == "__main__":
+    print()
